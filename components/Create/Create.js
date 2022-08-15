@@ -30,6 +30,7 @@ const Create = () => {
     const createNFT = async () => {
         if (!image || !price || !name || !description) return
         try {
+            console.log("test")
             const result = await client.add(JSON.stringify({ image, price, name, description }))
             mintThenList(result)
         } catch (error) {
@@ -64,7 +65,7 @@ const Create = () => {
                             <Form.Control onChange={(e) => setDescription(e.target.value)} size="lg" required as="textarea" placeholder="Description" />
                             <Form.Control onChange={(e) => setPrice(e.target.value)} size="lg" required type="number" placeholder="Price in ETH" />
                             <div className="d-grid px-0">
-                                <Button onClick={createNFT} variant="primary" size="lg">
+                                <Button onClick={createNFT} size="lg">
                                     Create & List NFT!
                                 </Button>
                             </div>

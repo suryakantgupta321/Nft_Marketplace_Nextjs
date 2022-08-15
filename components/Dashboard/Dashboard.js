@@ -8,6 +8,7 @@ const Dashboard = () => {
     const { marketplace, nft, account } = useContext(LayoutContext)
     const [loading, setLoading] = useState(true)
     const [items, setItems] = useState([])
+    console.log(marketplace)
     const loadMarketplaceItems = async () => {
         // Load all unsold items
         const itemCount = await marketplace.itemCount()
@@ -46,7 +47,7 @@ const Dashboard = () => {
 
     console.log(marketplace)
     useEffect(() => {
-        if (marketplace) {
+        if (marketplace && Object.keys(marketplace).length) {
             loadMarketplaceItems()
         }
     }, [marketplace])

@@ -63,7 +63,9 @@ export default function MyListedItems() {
         setSoldItems(soldItems)
     }
     useEffect(() => {
-        loadListedItems()
+        if (marketplace && Object.keys(marketplace).length) {
+            loadListedItems()
+        }
     }, [])
     if (loading) return (
         <main style={{ padding: "1rem 0" }}>
